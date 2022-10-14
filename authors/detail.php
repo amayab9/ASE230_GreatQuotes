@@ -1,8 +1,11 @@
 <?php
+session_start();
+
         $fh = fopen('../data/authors.csv', 'r');
         $line_counter=0;
         while($line=fgets($fh)){
           if($line_counter==$_GET['index']){
+            $_SESSION['authorLineNumber'] = $line_counter; // to pull index of author for quotes
             //display the author
             echo $line;
           }

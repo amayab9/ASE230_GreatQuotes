@@ -1,4 +1,5 @@
 <?php
+session_start();
           if(count($_POST)>0){
             //make sure quote is not already in the file
             /// NEED TO THINK MORE ON THIS ONE
@@ -21,10 +22,11 @@
               else{
                 // Add the name to the csv file
                 $fh = fopen('../data/quotes.csv', 'a');
-                fputs($fh,$_POST['quote'].PHP_EOL);//php_eol = new line
+                $authorLineNum = $_SESSION['authorLineNumber']; //line 25 and 26 allows us to store index of author with the quote
+                fputs($fh,$authorLineNum.';'.$_POST['quote'].PHP_EOL);//php_eol = new line
                 fclose($fh);
 
-                echo 'Thanks for adding '.$_POST['quote'].' to our amazing website!';
+                echo 'Thanks for adding "'.$_POST['quote'].'" to our amazing website!';
               }
             } // closes if statement for empty file
 
