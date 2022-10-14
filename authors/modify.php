@@ -7,7 +7,7 @@ if (count($_POST)>0){
   }
 
   // wrap in file_exists
-  if (file_exists('authors.csv')){
+  if (file_exists('../data/authors.csv')){
     $line_counter = 0;
     $new_file_content = '';
     $fh= fopen('authors.csv','r');
@@ -18,7 +18,7 @@ if (count($_POST)>0){
     }
     fclose($fh);
 
-  file_put_contents('authors.csv', $new_file_content);
+  file_put_contents('../data/authors.csv', $new_file_content);
   echo 'You have successfully modified the author
   <hr />
   <a href="index.php">Go back to index </a>';
@@ -27,7 +27,7 @@ if (count($_POST)>0){
 } // if the first if wasn't satisfied
 else {
   $author_name='';
-  $fh = fopen('authors.csv', 'r');
+  $fh = fopen('../data/authors.csv', 'r');
   $line_counter=0;
   while($line=fgets($fh)){
     if($line_counter == $_GET['index']){

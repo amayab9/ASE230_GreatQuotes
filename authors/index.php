@@ -1,6 +1,6 @@
 <h2><a href="create.php">Add a new author</a><hr /></h2>
 <?php
-            $fh = fopen('authors.csv', 'r'); //open authors page in read mode
+            $fh = fopen('../data/authors.csv', 'r'); //open authors page in read mode
             $index=0;
             while($line=fgets($fh)){
               if(strlen(trim($line))>0) {
