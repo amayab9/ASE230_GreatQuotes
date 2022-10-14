@@ -10,6 +10,6 @@
         }
         fclose($fh);
 ?>
-
+<a href='../quotes/create.php' >Add a quote</a>
 <a class="btn btn-secondary" href="modify.php?index=<?= $_GET['index'] ?>">modify author</a>
 <a class="btn btn-danger" href="delete.php?index=<?= $_GET['index'] ?>">delete author</a>
