@@ -10,7 +10,7 @@ if (count($_POST)>0){
   if (file_exists('../data/authors.csv')){
     $line_counter = 0;
     $new_file_content = '';
-    $fh= fopen('authors.csv','r');
+    $fh= fopen('../data/authors.csv','r');
     while($line=fgets($fh)){
       if($line_counter==$_GET['index']) $new_file_content.=$_POST['name'].PHP_EOL;
       else $new_file_content.=$line;
