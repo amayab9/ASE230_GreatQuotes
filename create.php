@@ -20,7 +20,7 @@
                 fputs($fh,$_POST['name'].PHP_EOL);//php_eol = new line
                 fclose($fh);
 
-                header("Location: created.php");
+                header("Location: index.php");
                 exit();
               }
             } // closes if statement for empty file
