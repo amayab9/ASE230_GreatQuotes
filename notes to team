@@ -1,0 +1,3 @@
+Didn't want to put this in Teams and wake anyone up...
+
+If you look at authors/createv2.php, I edited the code a little to create a unique ID for each new author that persists when we delete lines (since deleting in this project is overwriting with an empty line). I was having trouble after deletions with the modify and view links pointing to the wrong line. I did not overwrite Amaya's code, because I did not test if her code experienced the same misalignment after deleting. This is something I started working on the other day and wanted to test. It points to a different csv file for now.
