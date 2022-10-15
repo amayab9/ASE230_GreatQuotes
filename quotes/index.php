@@ -1,5 +1,5 @@
 <?php
-            $fh = fopen('../data/quotes.csv', 'r'); //open authors page in read mode
+            $fh = fopen('../data/quotes.csv', 'r'); //open quotes storage in read mode
             $index=0;
             while($line=fgets($fh)){
               if(strlen(trim($line))>0) {

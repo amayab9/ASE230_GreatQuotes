@@ -4,6 +4,7 @@
             $index=0;
             while($line=fgets($fh)){
               if(strlen(trim($line))>0) {
+                // links to page, but has browser repeat search on the linked page
                 echo '<h1><a href="detail.php?index='.$index.'">'.trim($line).'</a>
                 (<a href="detail.php?index='.$index.'">view author</a>)
                 (<a href="modify.php?index='.$index.'">modify author</a>)
