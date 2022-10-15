@@ -14,13 +14,16 @@ session_start();
         fclose($fh);
 ?>
 <a href='../quotes/create.php' >Add a quote</a>
-<a class="btn btn-secondary" href="modify.php?index=<?= $_GET['index'] ?>">modify author</a>
-<a class="btn btn-danger" href="delete.php?index=<?= $_GET['index'] ?>">delete author</a>
-<p> Quotes by Author</p>
+<a href="modify.php?index=<?= $_GET['index'] ?>">modify author</a>
+<a href="delete.php?index=<?= $_GET['index'] ?>">delete author</a>
+<p> Quotes: </p>
 
 <?php
+#check for index of the author
+#read the file
+#if the index of the author matches to the index of the author in the quotes.csv file then print that quote
   $fh = fopen('../data/quotes.csv', 'r');
-  $line_counter=0;
+  $line_counter = 0;
   while($line=fgets($fh)){
     if($line_counter==$_GET['index'] && $line_counter== $_SESSION['authorLineNumber']){//if index of author matches the index on this page
       $line=trim($line);
