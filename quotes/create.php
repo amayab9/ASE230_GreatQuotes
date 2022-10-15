@@ -1,5 +1,6 @@
 <?php
 session_start();
+
           if(count($_POST)>0){
             //make sure quote is not already in the file
             /// NEED TO THINK MORE ON THIS ONE
