@@ -15,12 +15,17 @@
   } // close while loop
   fclose($fh);
 ?>
+
+<h2><a href="../quotes/create.php?authorID=<?=$_SESSION['authorRef']?>">Add a quote</a></h2>
+<h2><a href="modify.php?authorID=<?=$_SESSION['authorRef']?>">modify author</a></h2>
+<h2><a href="delete.php?authorID=<?=$_SESSION['authorRef']?>">delete author</a></h2>
+<hr />
 <h1>Author/Source: <?=$authorName?></h1>
-<a href="../quotes/create.php?authorID=<?=$_SESSION['authorRef']?>">Add a quote</a>
-<a href="modify.php?authorID=<?=$_SESSION['authorRef']?>">modify author</a>
-<a href="delete.php?authorID=<?=$_SESSION['authorRef']?>">delete author</a>
 <p> Quotes: </p>
-<!-- Need to add functionality to list all quotes by author-->
+<!-- Need to add functionality to list all quotes by author
+  Thought: add an href link to a quotes index filtered on author passed in query string
+
+-->
 
 
 <!-- // < ? php

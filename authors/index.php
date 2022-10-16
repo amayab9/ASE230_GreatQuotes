@@ -1,4 +1,4 @@
-<!-- Need to mirror index under quotes folder that shows Quotes list attributed to author/source --> 
+<!-- Need to mirror index under quotes folder that shows Quotes list attributed to author/source -->
 
 <h2><a href="create.php">Add a new author</a><hr /></h2>
 <?php
@@ -16,14 +16,19 @@
       if(strlen($line[0])>0) {
         $authorID=$line[0];
         $author_name=$line[1];
-        $count_rows += 1;
+        $index += 1;
         // links to page, but has browser repeat search on the linked page
-        echo '<h1><a href="detail.php?index='.$authorID.'">'.trim($author_name).'</a>
-        (<a href="detail.php?authorID='.$authorID.'">view author</a>)
-        (<a href="modify.php?authorID='.$authorID.'">modify author</a>)
-        (<a href="delete.php?authorID='.$authorID.'">delete author</a>)</h1>';
-        $index++;
+        // changed modify.php for code testing
+        echo '<h1><a href="detail.php?index='.$index.'&authorID='.$authorID.'">'.trim($author_name).'</a>
+        (<a href="detail.php?index='.$index.'&authorID='.$authorID.'&authorNm='.$author_name.'">view author</a>)
+        (<a href="modify.php?index='.$index.'&authorID='.$authorID.'&authorNm='.$author_name.'">modify author</a>)
+        (<a href="delete.php?index='.$index.'&authorID='.$authorID.'&authorNm='.$author_name.'">delete author</a>)</h1>';
+
       }
+      else {
+        $index++; // this should maintain an index that doesn't skip empty lines
+      }
+
       // $error = 'there are no authors in our index';
       // break;
 
@@ -35,5 +40,5 @@
 }
 
 if (strlen($error)>1) echo $error;
-if ($count_rows == 0) echo 'There are no authors in the database. Please add an author.';
+if ($index == 0) echo 'There are no authors in the database. Please add an author.';
 ?>

@@ -30,7 +30,7 @@
         $fileLineCount += 1;
         $spaces = str_repeat("0",(5 - strlen($fileLineCount)));
         $authorID = 'A'.$spaces.$fileLineCount;
-        $author_ra = $authorID.",".$_POST['name'];
+        $author_ra = $authorID.",".$_POST['name']; //test theory about PHP_EOL
         $fh = fopen('../data/authors.csv', 'a');
         fputcsv($fh, explode(',',$author_ra));
         fclose($fh);

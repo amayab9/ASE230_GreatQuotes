@@ -1,3 +1,5 @@
+10/16: modify.php in authors works
+
 10/16: Another late night comment...not sure you all have noticed this...
 Quotes can be added to csv with unique quoteID, authorID, quoteText structure
 Add author FINALLY doesn't accept duplicate entries (unless you spell it wrong).
