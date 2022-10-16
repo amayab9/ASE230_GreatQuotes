@@ -1,4 +1,4 @@
-<?php 
+<?php
     function readCSVFile($fileName){//assuming we type in '' with the fileName
         $fh = fopen($fileName, 'r');
     }
@@ -8,7 +8,7 @@
         $index=0;
         while($line=fgets($fh)){
         if(strlen(trim($line))>0) {
-            echo .$index.trim($line);
+            echo ($index.trim($line));
             $index++;
         }
 
