@@ -4,6 +4,7 @@
     }
 
     function readOneElementOfCSVFile($fileName) {
+        $fh = fopen($fileName, 'r');
         readCSVFile($fileName);
         $index=0;
         while($line=fgets($fh)){
