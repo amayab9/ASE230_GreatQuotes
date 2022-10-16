@@ -1,37 +1,43 @@
 <?php
-session_start();
-
-        $fh = fopen('../data/authors.csv', 'r');
-        $line_counter=0;
-        while($line=fgets($fh)){
-          if($line_counter==$_GET['index']){
-            $_SESSION['authorLineNumber'] = $line_counter; // to pull index of author for quotes
-            //display the author
-            echo $line;
-          }
-          $line_counter++;
-        }
-        fclose($fh);
+  session_start();
+  $authorID='';
+  $authorName='';
+  $fh = fopen('../data/authors.csv', 'r');
+  while(($line=fgetcsv($fh, 0, ",")) !== FALSE){
+    if(strlen($line[0])>0) {
+      $authorID=$line[0];
+      if($authorID==$_GET['authorID']){
+        $_SESSION['authorRef'] = $authorID; // to pull ID of author for quotes
+        //store the author
+        $authorName = $line[1];
+      } // close author search by authorID
+    } // close check if row is empty
+  } // close while loop
+  fclose($fh);
 ?>
-<a href='../quotes/create.php' >Add a quote</a>
-<a href="modify.php?index=<?= $_GET['index'] ?>">modify author</a>
-<a href="delete.php?index=<?= $_GET['index'] ?>">delete author</a>
+<h1>Author/Source: <?=$authorName?></h1>
+<a href="../quotes/create.php?authorID=<?=$_SESSION['authorRef']?>">Add a quote</a>
+<a href="modify.php?authorID=<?=$_SESSION['authorRef']?>">modify author</a>
+<a href="delete.php?authorID=<?=$_SESSION['authorRef']?>">delete author</a>
 <p> Quotes: </p>
+<!-- Need to add functionality to list all quotes by author-->
 
-<?php
+
+<!-- // < ? php
 #check for index of the author
 #read the file
 #if the index of the author matches to the index of the author in the quotes.csv file then print that quote
-  $fh = fopen('../data/quotes.csv', 'r');
-  $line_counter = 0;
-  while($line=fgets($fh)){
-    if($line_counter==$_GET['index'] && $line_counter== $_SESSION['authorLineNumber']){//if index of author matches the index on this page
-      $line=trim($line);
-      $line=explode(';', $line);
-      if($line[1]==trim($_SESSION['authorLineNumber'])){
-        echo $line;
-      }
-    }
-    $line_counter++;
-  }
-  fclose($fh);
+  // $fh = fopen('../data/quotes.csv', 'r');
+  // $line_counter = 0;
+  // while($line=fgets($fh)){
+  //   if($line_counter==$_GET['index'] && $line_counter== $_SESSION['authorLineNumber']){//if index of author matches the index on this page
+  //     $line=trim($line);
+  //     $line=explode(';', $line);
+  //     if($line[1]==trim($_SESSION['authorLineNumber'])){
+  //       echo $line;
+  //     }
+  //   }
+  //   $line_counter++;
+  // }
+  // fclose($fh);
+  ?> -->
